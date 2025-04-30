@@ -212,7 +212,7 @@ function discover_peers() {
 
 function check_tasks() {
     setInterval(function() {
-        $.get('http://127.0.0.1:5000//api/tasks', function(data) {
+        $.get('/api/tasks', function(data) {
             let nodeStatus = data.status[0];
             let handlerStatus = data.status[1];
             $('#pending_node').text(nodeStatus);
