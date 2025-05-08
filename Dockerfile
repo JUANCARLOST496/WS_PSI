@@ -13,6 +13,7 @@ RUN apk add build-base python3-dev libffi-dev linux-headers net-tools wireless-t
 RUN pip install --no-cache-dir --upgrade pip \
     && pip install --no-cache-dir -r requirements.txt \
     && pip install /app/Crypto/py-fhe \
+    && pip install pycryptodome \
     && pip install waitress
 
 COPY . .

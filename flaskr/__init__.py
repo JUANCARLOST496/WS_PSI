@@ -200,6 +200,12 @@ def create_app(test_config=None):
     def api_check_tasks(node):
         return jsonify({'status': node.check_tasks()})
 
+    @app.route('/api/helper', methods=['GET'])
+    @node_wrapper
+    def api_helper(node):
+    # Assuming `HelpTest` is already integrated with the node
+        return jsonify(node.json_handler.help_test.get_dataset())
+
     # noinspection PyMethodMayBeStatic
     # To be able to use appropriate API methods, GET for status and POST for connect/disconnect
     class FirebaseAPI(MethodView):
