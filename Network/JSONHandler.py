@@ -9,6 +9,7 @@ from Crypto.helpers.CryptoImplementation import CryptoImplementation
 from Crypto.helpers.DamgardJurikHandler import DamgardJurikHelper
 from Crypto.helpers.PaillierHandler import PaillierHelper
 from Crypto.helpers.HerbHelper import HerbHelper
+from Crypto.helpers.ScrapeHelper import ScrapeHelper
 from Logs import Logs
 from Logs.Logs import ThreadData
 from Network.PriorityExecutor import PriorityExecutor
@@ -29,7 +30,8 @@ class JSONHandler:
                                  "Damgard-Jurik_OPE", "Damgard-Jurik OPE", "DamgardJurik PSI-CA OPE",
                                  "Damgard-Jurik PSI-CA OPE"): DamgardJurikHelper(),
             CryptoImplementation("BFV", "BFV_OPE", "BFV OPE"): BFVHelper(),
-            CryptoImplementation("Herb"): HerbHelper()
+            CryptoImplementation("Herb"): HerbHelper(),
+            CryptoImplementation("Scrape"): ScrapeHelper()
         }
         self.OPEHandler = OPEHandler(id, my_data, domain, devices, results)
         self.CAOPEHandler = CAOPEHandler(id, my_data, domain, devices, results)
