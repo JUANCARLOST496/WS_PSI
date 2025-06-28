@@ -58,16 +58,11 @@ function update_devices() {
                     displayKey = key.replace(/:.*:/, '::');
                 }
                 $('#devicesConnected').html('<h2>Dispositivos registrados</h2>');
-                $('#devices').append('<p id="' + key + '">' + displayKey + ': Last seen: ' + value +
-                ' <button class="btn waves-effect waves-light" onclick="ping(\'' + key + '\')">Ping</button>' +
-                '<button class="btn waves-effect waves-light" onclick="FindIntersection(\'' + key + '\', \'' + 'Paillier' + '\', \'' + 'PSI-Domain' +'\')">Paillier</button>'
-                + '<button class="btn waves-effect waves-light" onclick="FindIntersection(\'' + key + '\', \'' + 'Herb' + '\', \'' + 'PSI-Domain' +'\')">Herb</button>'+
+                $('#devices').append('<p id="' + key + '">' + displayKey + ': Last seen: ' + value +              
+                '<button class="btn waves-effect waves-light" onclick="FindIntersection(\'' + key + '\', \'' + 'Paillier' + '\', \'' + 'PSI-Domain' +'\')">Paillier</button>' +
                 ' <button class="btn waves-effect waves-light" onclick="FindIntersection(\'' + key + '\', \'' + 'Damgard-Jurik' + '\', \'' + 'PSI-Domain' +'\')">Damgard-Jurik</button></p>' +
-                ' <button class="btn waves-effect waves-light" onclick="FindIntersection(\'' + key + '\', \'' + 'Paillier OPE' + '\', \'' + 'OPE' +'\')">Paillier - OPE</button>' +
-                ' <button class="btn waves-effect waves-light" onclick="FindIntersection(\'' + key + '\', \'' + 'Damgard-Jurik OPE' + '\', \'' + 'OPE' +'\')">Damgard-Jurik - OPE</button>' +
-                ' <button class="btn waves-effect waves-light" onclick="FindIntersection(\'' + key + '\', \'' + 'Paillier PSI-CA OPE' + '\', \'' + 'PSI-CA' +'\')">Cardinality - Paillier</button>' +
-                ' <button class="btn waves-effect waves-light" onclick="FindIntersection(\'' + key + '\', \'' + 'Damgard-Jurik PSI-CA OPE' + '\', \'' + 'PSI-CA' +'\')">Cardinality - Damgard-Jurik</button>' +
-                ' <button class="btn waves-effect waves-light" onclick="test(\'' + key + '\')">Launch test</button>'
+                '<button class="btn waves-effect waves-light" onclick="FindIntersection(\'' + key + '\', \'' + 'Herb' + '\', \'' + 'PSI-Domain' +'\')">Herb</button>'+
+                '<button class="btn waves-effect waves-light" onclick="FindIntersection(\'' + key + '\', \'' + 'Scrape' + '\', \'' + 'PSI-Domain' +'\')">Scrape</button>'
                 );
             });
         }

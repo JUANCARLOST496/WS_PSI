@@ -11,10 +11,15 @@ class EncryptedNumber:
         self.c2 = c2
 
     def __mul__(self, scalar):
-        # Multiplicación homomórfica: (c1,c2)^scalar = (c1^scalar, c2^scalar)
         return EncryptedNumber(
             pow(self.c1, scalar, ScrapeHelper.p),
             pow(self.c2, scalar, ScrapeHelper.p)
+        )
+
+    def __add__(self, other):
+        return EncryptedNumber(
+            (self.c1 * other.c1) % ScrapeHelper.p,
+            (self.c2 * other.c2) % ScrapeHelper.p
         )
 
     def ciphertext(self):
@@ -212,7 +217,7 @@ class ScrapeHelper:
     def eval_coefficients(self, coeffs, pubkey, my_data):
         """
         Simulación de evaluación homomórfica de un polinomio para cada elemento ∈ my_data.
-        Aquí ya no uso random.randint(...), sino SCRAPE:
+        Aquí ya uso SCRAPE:
           r = generate_random_beacon(round_number = el índice de elemento)
         Luego calculo:
           ej = horner_encrypted_eval(coeffs, element)

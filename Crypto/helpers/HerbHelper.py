@@ -58,7 +58,7 @@ class HerbHelper:
         return self.public_key
 
     def encrypt(self, number, round_number=0):
-        r = self.generate_random_beacon(round_number)
+        r = random.randint(1, HerbHelper.p - 2)
         c1 = pow(g, r, HerbHelper.p)
         c2 = (pow(self.public_key, r, HerbHelper.p) * pow(g, number, HerbHelper.p)) % HerbHelper.p
         return EncryptedNumber(c1, c2)
